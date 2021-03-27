@@ -1,3 +1,3 @@
 export enum Routes {
-    Partners = '/partners'
+    Partners = '/v1/api/partners'
 }

@@ -34,10 +34,12 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [],
   imports: [
+    HttpClientModule,
     FlexLayoutModule,
     MatCheckboxModule,
     MatButtonModule,
@@ -71,6 +73,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     MatPaginatorModule
   ],
   exports:[
+    HttpClientModule,
     FlexLayoutModule,
     MatCheckboxModule,
     MatButtonModule,

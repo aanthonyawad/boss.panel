@@ -1,26 +1,30 @@
 <div class="m-3" fxLayout="row" fxLayoutAlign="start center">
     <button mat-flat-button color="primary" class="mr-2" [routerLink]="'/'" >Back</button>
-    <button mat-flat-button color="primary" class="mx-2" [routerLink]="'/partners/add'" >Add Partner</button>
+    <button mat-flat-button color="primary" class="mx-2" (click)="showParnternsInRange()" >Show Partners In Range</button>
 </div>
-
+<div fxLayout="row" fxLayoutAlign="center center">
+  <h3 class="mb-3">Partners List</h3>
+</div>
 <div>
-    <h3 ngClass.xs="text-center" class="mb-3">Partners List</h3>
   <div fxLayout="row" fxShow.gt-sm fxHide.lt-md fxLayoutAlign="space-between center">
     <p fxFlex="30" class="text text-center fwb my-2 capitalize">Partner Name</p>
     <p fxFlex="30" class="text text-center fwb my-2 capitalize">Organization</p>
+    <p fxFlex="30" class="text text-center fwb my-2 capitalize">Customer Location</p>
     <p fxFlex="30" class="text text-center fwb my-2 capitalize">Website</p>
   </div>
   <mat-divider fxShow.gt-sm fxHide.lt-md [inset]="true"></mat-divider>
-  <!-- <ng-container *ngFor="let document of documents">
+  <ng-container *ngFor="let response of partnersResponses">
     <div fxLayout="row" fxLayout.lt-md="row wrap" fxLayoutAlign.lt-md="" fxLayoutAlign="space-between center">
-        <p fxFlex="30" fxShow.lt-md fxHide.gt-sm fxFlex.lt-md="45" fxFlexAlign.lt-md="center" class="text text-center fwb my-2 capitalize">Document Category</p>
-        <p fxFlex="30" fxFlex.lt-md="45" fxFlexAlign.lt-md="center" class="text text-muted text-center my-2 fw-600 capitalize">{{document.type}}</p>
-        <p fxFlex="30" fxShow.lt-md fxHide.gt-sm fxFlex.lt-md="45" fxFlexAlign.lt-md="center" class="text text-center my-2 fwb capitalize">Description</p>
-        <p fxFlex="30" fxFlex.lt-md="45" fxFlexAlign.lt-md="center" class="text text-muted my-2 text-center fw-600 capitalize">{{document.name}}</p>
-        <p fxFlex="30" fxShow.lt-md fxHide.gt-sm fxFlex.lt-md="45" fxFlexAlign.lt-md="center" class="text text-center my-2 fwb capitalize">Value</p>
-        <p fxFlex="30" fxFlex.lt-md="45" fxFlexAlign.lt-md="center" class="text text-muted fw-600 my-2 text-center capitalize">{{document.filename}}</p>
+        <p fxFlex="30" fxShow.lt-md fxHide.gt-sm fxFlex.lt-md="45" fxFlexAlign.lt-md="center" class="text text-center fwb my-2 capitalize">Partner Name</p>
+        <p fxFlex="30" fxFlex.lt-md="45" fxFlexAlign.lt-md="center" class="text text-muted text-center my-2 fw-600 capitalize">{{response.urlName}}</p>
+        <p fxFlex="30" fxShow.lt-md fxHide.gt-sm fxFlex.lt-md="45" fxFlexAlign.lt-md="center" class="text text-center my-2 fwb capitalize">Organization</p>
+        <p fxFlex="30" fxFlex.lt-md="45" fxFlexAlign.lt-md="center" class="text text-muted my-2 text-center fw-600 capitalize">{{response.organization}}</p>
+        <p fxFlex="30" fxShow.lt-md fxHide.gt-sm fxFlex.lt-md="45" fxFlexAlign.lt-md="center" class="text text-center my-2 fwb capitalize">Customer Location</p>
+        <p fxFlex="30" fxFlex.lt-md="45" fxFlexAlign.lt-md="center" class="text text-muted fw-600 my-2 text-center capitalize">{{response.customerLocations}}</p>
+        <p fxFlex="30" fxShow.lt-md fxHide.gt-sm fxFlex.lt-md="45" fxFlexAlign.lt-md="center" class="text text-center my-2 fwb capitalize">Website</p>
+        <p fxFlex="30" fxFlex.lt-md="45" fxFlexAlign.lt-md="center" class="text text-muted fw-600 my-2 text-center capitalize">{{response.website}}</p>
         <p fxFlex="30" fxShow.lt-md fxHide.gt-sm fxFlex.lt-md="45" fxFlexAlign.lt-md="center" class="text text-center my-2 fwb capitalize"></p>
     </div>
     <mat-divider [inset]="true"></mat-divider>
-  </ng-container> -->
+  </ng-container>
   </div>

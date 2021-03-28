@@ -23,6 +23,15 @@ docker run --rm -d  -p 80:80/tcp clientapp:v1
 docker tag aanthonyawad/clientapp:v1
 docker push aanthonyawad/clientapp:v1
 ```
+
+## how to deploy the angular project on docker
+```bash
+docker build --pull --rm -f "Panel\Dockerfile" -t panel:v1 "Panel"
+docker run --rm -d -p 4000:3000 panel:v1
+docker tag aanthonyawad/panel:v1
+docker push aanthonyawad/panel:v1
+```
+
 run node project scripts from terminal 
 ```bash
 npm run build

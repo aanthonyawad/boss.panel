@@ -1,3 +1,4 @@
+import { ResponseMessage } from './../../shared/models/responseMessage.models';
 import { environment } from './../../../environments/environment.prod';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
@@ -17,13 +18,19 @@ import { PartnersResponse } from './models/partners.responses';
     }
   
   
-    search(): Observable<PartnersResponse []> {
-      return this._http.get<PartnersResponse []>(environment.appConfig.apiUrl + '/partners', this.httpOptions)
+    search(): Observable<ResponseMessage<PartnersResponse []>> {
+      return this._http.get<ResponseMessage<PartnersResponse []>>(environment.appConfig.apiUrl + '/partners', this.httpOptions)
         .pipe(
           retry(0)
         )
     }
 
+    searchWithinRange(range : number): Observable<ResponseMessage<PartnersResponse []>> {
+      return this._http.get<ResponseMessage<PartnersResponse []>>(environment.appConfig.apiUrl + '/partners' + '/'+range, this.httpOptions)
+        .pipe(
+          retry(0)
+        )
+    }
 
 
     

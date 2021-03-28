@@ -30,6 +30,7 @@ export const listWithinRange = async (
       office.distance = calculatedistance(office);
     });
   });
+
   let partnerResult: PartnerRequest[] = [];
   partnerRequest.forEach((value) => {
     for (var i = 0; i < value.offices.length; i++) {

@@ -5,13 +5,13 @@ import { BroadcastService } from 'src/services/brodcast.service';
 @Component({
   template: ''
 })
-export class BaseComponent implements OnDestroy {
+export class BaseComponent<T> implements OnDestroy {
   progressing: boolean;
   message: string ;
   errors: any;
   showErrors: boolean;
   broadCastSuccess: boolean = true;
-  _lastResponseMessage: ResponseMessage;
+  _lastResponseMessage: ResponseMessage<T>;
   _actionSubscription: any;
 
   constructor(private _broadCastService: BroadcastService, private _injector: Injector) {
@@ -40,7 +40,7 @@ export class BaseComponent implements OnDestroy {
     }
   }
 
-  handleErrors(message: ResponseMessage, form: FormGroup, callBackOnError: Function): void {
+  handleErrors(message: ResponseMessage<T>, form: FormGroup, callBackOnError: Function): void {
     this.endProgress();
     if (callBackOnError !== null) {
       callBackOnError(message, form);
@@ -86,7 +86,7 @@ export class BaseComponent implements OnDestroy {
     });
   }
 
-  handleValidationErrors(message: ResponseMessage, form: FormGroup) {
+  handleValidationErrors(message: ResponseMessage<T>, form: FormGroup) {
     this._lastResponseMessage = message;
     if (message.statusCode === 422) {
       Object.keys(message.validationErrors).forEach(prop => {

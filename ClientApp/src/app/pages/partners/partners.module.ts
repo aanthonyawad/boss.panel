@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 
 import { PartnersRoutingModule } from './partners-routing.module';
 import { SearchPartnersComponent } from './search-partners/search-partners.component';
-import { AddPartnerComponent } from './add-partner/add-partner.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [SearchPartnersComponent, AddPartnerComponent],
+  declarations: [SearchPartnersComponent],
   imports: [
+    FormsModule,
     SharedModule,
     CommonModule,
     PartnersRoutingModule

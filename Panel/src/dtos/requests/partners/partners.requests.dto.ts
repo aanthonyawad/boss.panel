@@ -1,21 +1,11 @@
-import { ListRequest } from "../listRequest.dto";
+import { IsNumber, IsString } from 'class-validator';
 
-export interface PartnerRequest {
-    id: number;
-    urlName: string;
-    organization: string;
-    customerLocations: string;
-    willWorkRemotely: boolean;
-    website: string;
-    services: string;
-    offices: Office[];
+class RangeInParamsDto {
+    @IsString()
+    public readonly range: string;
 }
 
-export interface Office {
-    location: string;
-    address: string;
-    coordinates: string;
-    distance : number;
-}
+export default RangeInParamsDto;
 
+ 
 

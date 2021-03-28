@@ -24,7 +24,7 @@ docker tag aanthonyawad/clientapp:v1
 docker push aanthonyawad/clientapp:v1
 ```
 
-## how to deploy the angular project on docker
+## how to deploy the ts-node project on docker
 ```bash
 docker build --pull --rm -f "Panel\Dockerfile" -t panel:v1 "Panel"
 docker run --rm -d -p 4000:3000 panel:v1

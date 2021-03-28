@@ -1,11 +1,6 @@
-import { IsArray, IsBoolean, IsNumber, IsObject, IsString } from "class-validator";
 
-export class ListResponse<T>{
-    @IsBoolean()
+export class ListResponse<T>{ 
     hasMore : boolean;
-
-    @IsNumber()
     totalCount : number;
-    @IsArray()
     data  : T[];
 }  

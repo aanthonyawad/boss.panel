@@ -5,6 +5,7 @@ import {
   PartnerRequest,
   Office,
 } from "../dtos/responses/partners/partners.response.dto";
+import { getResponse } from "../utils/response";
 
 export const list = async (
   request: Request,
@@ -13,7 +14,7 @@ export const list = async (
 ) => {
   let fr = fs.readFileSync("partners.json", "utf8");
   let partnerRequest: PartnerRequest[] = JSON.parse(fr);
-  return response.send(partnerRequest);
+  return response.send(getResponse(partnerRequest));
 };
 
 export const listWithinRange = async (
@@ -40,7 +41,8 @@ export const listWithinRange = async (
   });
   
   partnerResult.sort((a, b) => (a.urlName > b.urlName ? 1 : -1));
-  response.send(partnerResult);
+
+  response.send(getResponse(partnerResult));
 };
 
 export const calculatedistance = (office: Office) => {

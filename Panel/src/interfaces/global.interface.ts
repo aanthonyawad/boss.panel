@@ -8,5 +8,7 @@ export interface IRequest extends Request {
 
 export interface IResponseJSON<T> {
     status: Status;
-    data: T;
+    statusCode : number;
+    validationErrors? : string [];
+    response: T;
 }

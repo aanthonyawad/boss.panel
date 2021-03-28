@@ -24,5 +24,6 @@ export const calculatedistance = () => {
     if (result != NaN) {
       return MeetingDetails.earthRadius * result;
     }
+    
     chai.expect(result).equal(19.566992494874732);
   };

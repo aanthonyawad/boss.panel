@@ -1,0 +1,17 @@
+<div fxFlex="100" fxLayout="column wrap" fxLayoutAlign="space-around">
+    <div fxLayout="row" fxLayoutAlign="end center">
+      <button color="basic" mat-icon-button mat-dialog-close>
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <h1 style="color: #ff5252" mat-dialog-title>Errors</h1>
+    </div>
+    <div style="color: #ff5252" class="error" fxLayout="row" fxLayoutAlign="center center"
+      *ngFor="let error of data.validationErrors">
+      <span>&#10005;</span> <span class="fw-400 mx-2">{{error}}</span>
+    </div>
+    <mat-dialog-actions fxLayout="row" fxLayoutAlign="center center">
+      <button color="primary" class="mt-2"  mat-raised-button mat-dialog-close>Okay</button>
+    </mat-dialog-actions>
+  </div>

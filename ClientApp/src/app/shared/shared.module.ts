@@ -35,10 +35,13 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
+import { SuccessComponent } from './success.component';
+import { ErrorComponent } from './error.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [SuccessComponent, ErrorComponent],
   imports: [
+    CommonModule,
     HttpClientModule,
     FlexLayoutModule,
     MatCheckboxModule,

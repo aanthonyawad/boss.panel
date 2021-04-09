@@ -37,9 +37,10 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { SuccessComponent } from './success.component';
 import { ErrorComponent } from './error.component';
+import { EventListenerComponent } from './components/event-listener.component';
 
 @NgModule({
-  declarations: [SuccessComponent, ErrorComponent],
+  declarations: [SuccessComponent, ErrorComponent,EventListenerComponent],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -75,7 +76,7 @@ import { ErrorComponent } from './error.component';
     MatSortModule,
     MatPaginatorModule
   ],
-  exports:[
+  exports:[EventListenerComponent,
     HttpClientModule,
     FlexLayoutModule,
     MatCheckboxModule,

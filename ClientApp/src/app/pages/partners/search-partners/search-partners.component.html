@@ -74,4 +74,8 @@
     </div>
     <mat-divider [inset]="true"></mat-divider>
   </ng-container>
+  
+  <mat-paginator class="m-3" [pageSize]="pageSize" [pageIndex]="pageIndex" [length]="totalRecords"
+  [pageSizeOptions]="[1, 5, 10, 25]" showFirstLastButtons (page)="pageSizeChanged($event)">
+</mat-paginator>
 </div>

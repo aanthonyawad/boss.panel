@@ -18,15 +18,15 @@ import { PartnersResponse } from './models/partners.responses';
     }
   
   
-    search(): Observable<ResponseMessage<PartnersResponse []>> {
-      return this._http.get<ResponseMessage<PartnersResponse []>>(environment.appConfig.apiUrl + '/partners', this.httpOptions)
+    search(skip: number,take : number): Observable<ResponseMessage<PartnersResponse []>> {
+      return this._http.get<ResponseMessage<PartnersResponse []>>(environment.appConfig.apiUrl + '/partners/'+skip+'/'+take, this.httpOptions)
         .pipe(
           retry(0)
         )
     }
 
-    searchWithinRange(range : number): Observable<ResponseMessage<PartnersResponse []>> {
-      return this._http.get<ResponseMessage<PartnersResponse []>>(environment.appConfig.apiUrl + '/partners' + '/'+range, this.httpOptions)
+    searchWithinRange(range : number,skip: number,take : number): Observable<ResponseMessage<PartnersResponse []>> {
+      return this._http.get<ResponseMessage<PartnersResponse []>>(environment.appConfig.apiUrl + '/partners' + '/'+range+'/'+skip+'/'+take, this.httpOptions)
         .pipe(
           retry(0)
         )

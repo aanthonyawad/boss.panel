@@ -14,7 +14,9 @@ export const list = async (
 ) => {
   let fr = fs.readFileSync("partners.json", "utf8");
   let partnerRequest: PartnerRequest[] = JSON.parse(fr);
+  partnerRequest = partnerRequest.splice(+request.params.skip,+request.params.take);
   return response.send(getResponse(partnerRequest));
+
 };
 
 export const listWithinRange = async (
@@ -41,8 +43,8 @@ export const listWithinRange = async (
     }
   });
   
-  partnerResult.sort((a, b) => (a.urlName > b.urlName ? 1 : -1));
-
+  partnerResult = partnerResult.sort((a, b) => (a.urlName > b.urlName ? 1 : -1));
+  partnerResult = partnerResult.splice(+request.params.skip,+request.params.take);
   response.send(getResponse(partnerResult));
 };
 

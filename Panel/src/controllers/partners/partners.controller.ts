@@ -5,6 +5,7 @@ import Controller from '../controller.abstract';
 import { list, listWithinRange } from '../../services/Partners.service';
 import RangeInParamsDto from '../../dtos/requests/partners/partners.requests.dto';
 import IdInParamsDto from '../../dtos/requests/id-in-params.dto';
+import ListRequestDto from '../../dtos/requests/listRequest.dto';
 
 class PartnersController extends Controller {
     
@@ -13,8 +14,8 @@ class PartnersController extends Controller {
     }
 
     public initializeRoutes() {
-        this.router.get(`${this.path}`, this.list);
-        this.router.get(`${this.path}/:range`, validationMiddleware({ params: RangeInParamsDto }), this.listWithinRange);
+        this.router.get(`${this.path}/:skip/:take`,validationMiddleware({ params: ListRequestDto }), this.list);
+        this.router.get(`${this.path}/:range/:skip/:take`, validationMiddleware({ params: RangeInParamsDto }), this.listWithinRange);
 
     }
     private async list(request: Request, response: Response, next: NextFunction) {

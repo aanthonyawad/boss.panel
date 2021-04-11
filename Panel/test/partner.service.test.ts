@@ -25,7 +25,7 @@ var calculatedistance = () => {
   };
 
 describe('calculatedistance', () => {
-  it('should return 19.566992494874732', () => {
+  it('should return 7.040693783279961', () => {
     const result = calculatedistance();
     expect(result).to.equal(7.040693783279961);
   });

@@ -1,16 +1,16 @@
 import { MeetingDetails } from './../src/constants/meetingDetails';
-import * as chai from 'chai';
+import { expect } from 'chai';
+import 'mocha';
 
 
-export const calculatedistance = () => {
-    let long = 1.28304;
-    let lat = 103.85199319999992;
+var calculatedistance = () => {
+    let lat = 10.6792447;
+    let long = -61.56065180000002;
   
     let absoluteDifferenceLat = +(lat - MeetingDetails.lat);
     let absoluteDifferenceLong = +(long - MeetingDetails.long);
   
-    let result =
-      2 *
+    let result = 2 *
       Math.asin(
         Math.sqrt(
           Math.sin(absoluteDifferenceLat / 2) *
@@ -21,9 +21,12 @@ export const calculatedistance = () => {
               Math.sin(absoluteDifferenceLong / 2)
         )
       );
-    if (result != NaN) {
-      return MeetingDetails.earthRadius * result;
-    }
-    
-    chai.expect(result).equal(19.566992494874732);
+      return result * MeetingDetails.earthRadius;
   };
+
+describe('calculatedistance', () => {
+  it('should return 19.566992494874732', () => {
+    const result = calculatedistance();
+    expect(result).to.equal(7.040693783279961);
+  });
+});

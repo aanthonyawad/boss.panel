@@ -50,8 +50,8 @@ export const listWithinRange = async (
 
 export const calculatedistance = (office: Office) => {
   let coords: string[] = office.coordinates.split(",");
-  let long = +coords[0];
-  let lat = +coords[1];
+  let lat = +coords[0];
+  let  long= +coords[1];
 
   let absoluteDifferenceLat = +(lat - MeetingDetails.lat);
   let absoluteDifferenceLong = +(long - MeetingDetails.long);
